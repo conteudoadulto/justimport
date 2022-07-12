@@ -1,7 +1,0 @@
-<div class="post">
-<span class="video-duration">{% if post.qualidade contains '1440p'%}<p class="qualidadehd">1440p</p>{% elsif post.qualidade contains '1080p'%}<p class="qualidadehd">1080p</p>{% elsif post.qualidade contains '720p' %}<p class="qualidadehd">720p</p>{% elsif post.qualidade contains '480p' %}<p class="qualidadeinferior">480p</p>{% elsif post.qualidade contains '360p' %}<p class="qualidadeinferior">360p</p>{% elsif post.qualidade contains '250p' %}<p class="qualidadeinferior">250p</p>{% endif %}</span>
-<a href="{{ site.url }}{{ post.url }}"><img src="{{ site.url }}/imagens/posts/{{ post.thumb }}.webp" width="420" height="236" class="thumb" alt="{{ post.title }}"/></a>
-<h3 style="margin:0px;"><a class="post-title" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h3>
-<script>function numFormatter(a){return a>999&&a<1e6?(a/1e3).toFixed(1)+"k":a>1e6?(a/1e6).toFixed(1)+"M":a<900?a:void 0}function {{ post.thumb | remove: '-' }}(a){a.value>0?document.getElementById("{{ post.thumb | remove: '-' }}").innerText=numFormatter(a.value):document.getElementById("{{ post.thumb | remove: '-' }}").innerText="0"}</script><script async src="https://api.countapi.xyz/info/umpornozinho.com/{{ post.thumb | remove: '-' }}?callback={{ post.thumb | remove: '-' }}"></script>
-<h4 class="pagevideoviews"><span id="{{ post.thumb | remove: '-' }}">...</span> Visualizações - <p class="pagevideoduracao">{{ post.duration}}</p></h4>
-</div>

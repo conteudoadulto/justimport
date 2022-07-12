@@ -14,7 +14,6 @@ layout: null
         {% for post in site.posts limit: 10 %}
             <item>
                 <title>{{ post.title | xml_escape }}</title>
-                <author>1pornozinho@gmail.com (Um Pornozinho)</author>
                 <description>{% if post.description %}{{ post.description }}{% else %}Confira: {{ post.title }} e outros vídeos em Um Pornozinho!{% endif %}</description>
                 <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
                 <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
