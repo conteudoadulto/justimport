@@ -1,0 +1,21 @@
+---
+title: asiáticas
+layout: categoria
+permalink: /categoria/asiaticas
+---
+<h1 class="site-title">Categoria {{ page.title  | capitalize }} - Um Pornozinho</h1>
+<div class="conteudo">
+<div class="postagens">
+{% assign maxRelated = 112 %}
+{% assign maxRelatedCounter = 0 %}
+{% for post in site.posts %}
+	{% if post.categories contains 'asiaticas,' or post.categories contains 'asiaticas' or post.categories contains 'asian,' or post.categories contains 'asian' %}
+{% include modelopostagem.html %}
+            {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+            {% if maxRelatedCounter >= maxRelated %}
+                {% break %}
+            {% endif %}
+    {% endif %}
+{% endfor %}
+</div>
+</div>

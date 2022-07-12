@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>{{ page.title }}</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}Confira: {{ page.title }} e outros vídeos em Um Pornozinho!{% endif %}">
+	{% include head.html %}
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org/",
+	"@type": "VideoObject",
+	"name": "{{ page.title }}",
+	"description": "{% if page.description %}{{ page.description }}{% else %}Confira: {{ page.title }} e outros vídeos em Um Pornozinho!{% endif %}",
+	"thumbnailUrl": "{{ site.url }}/imagens/posts/{{ page.thumb }}.jpg",
+	"uploadDate": "{{ page.date| date: "%Y-%m-%d" }}",
+	"duration": "PT{% assign horario = page.duration | split: ":" %}{% assign horario2 = horario.first | divided_by: 60.0 | split: "." %}{% if horario.first.size == 2 %}{% assign horario1 = horario.first %}{% endif %}{% if horario1 >= "60" %}0{{ horario2.first }}H00M{{ horario.last }}S{% elsif horario.first.size == 3 %}0{{ horario2.first }}H00M{{ horario.last }}S{% else %}{{ horario.first }}M{{ horario.last }}S{% endif %}",
+	"embedUrl": "{{ page.video }}"  
+ }
+</script>
+<meta property="og:title" content="{{ page.title }}" />
+<meta property="og:type" content="video.movie" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:image" content="{{ site.url }}/imagens/posts/{{ page.thumb }}.jpg" />
+<meta property="description" content="{% if page.description %}{{ page.description }}{% else %}Confira: {{ page.title }} e outros vídeos em Um Pornozinho!{% endif %}" />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}Confira: {{ page.title }} e outros vídeos em Um Pornozinho!{% endif %}">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-GDZ6LJP3XN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GDZ6LJP3XN');
+</script>
+<!-- Contador de Visitas -->
+<script>function cb(a){a.value>0?document.getElementById("visits").innerText=a.value:document.getElementById("visits").innerText="0"}</script>
+<script async src="https://api.countapi.xyz/hit/umpornozinho.com/{{ page.thumb | remove: '-' }}?callback=cb"></script></head>
+</head>
+<body>
+{% include header.html %} 
+<!-- Tags -->
+{% include tags.html %}
+<!-- Postagem -->
+<div class="conteudopost">
+<iframe src="{{ page.video}}" class="videobox" frameborder="0" width="100%" scrolling="no" allowfullscreen="allowfullscreen" sandbox="allow-scripts allow-same-origin allow-orientation-lock"></iframe>
+<div style="display:flex;align-items:center;">
+<p style="margin-right:auto;"><i class="icon-eye"></i> <span id="visits">...</span></p>
+<button style="border-style:none;background:#000;border-radius:3px;padding:5px;display:inline-block;margin-right:4px;margin-bottom:4px;color:#fff;cursor:pointer;font-size:16px;" id="commentbutton"><i class="icon-comment-empty"></i> Comentários</button>
+<button style="border-style:none;background:#000;border-radius:3px;padding:5px;display:inline-block;margin-right:4px;margin-bottom:4px;color:#fff;cursor:pointer;font-size:16px;" id="sharebutton"><i class="icon-share"></i> Compartilhar</button>
+</div>
+</div>
+{% include anunciolateral.html %}
+<!-- after post -->
+<div style="margin-left:2%;margin-right:2%;width:95%;display:block;">
+<!-- Compartilhar -->
+<div id="sharecontent" style="display:none;min-height:100px;width:96%;padding:2%;background-color:#101010;border-radius:5px;">
+<p><i class="icon-share"></i> Compartilhar</p>
+<div>
+<a href="https://www.addtoany.com/share#url={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}&amp;title={{ page.title | cgi_escape }}" target="_blank"><img src="https://static.addtoany.com/buttons/a2a.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/twitter?linkurl={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}&amp;linkname={{ page.title | cgi_escape }}" target="_blank"><img src="https://static.addtoany.com/buttons/twitter.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/whatsapp?linkurl={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}&amp;linkname={{ page.title | cgi_escape }}" target="_blank"><img src="https://static.addtoany.com/buttons/whatsapp.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/facebook?linkurl={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}&amp;linkname={{ page.title | cgi_escape }}" target="_blank"><img src="https://static.addtoany.com/buttons/facebook.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/email?linkurl={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}&amp;linkname={{ page.title | cgi_escape }}" target="_blank"><img src="https://static.addtoany.com/buttons/email.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/reddit?linkurl={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}&amp;linkname={{ page.title | cgi_escape }}" target="_blank"><img src="https://static.addtoany.com/buttons/reddit.svg" width="32" height="32" style="background-color:royalblue"></a>
+</div>
+<p><i class="icon-link"></i> Copiar Link da página</p>
+<div style="display:flex;">
+<input id="linkinput" readonly value="{{ site.url }}{{ page.url }}" style="width:80%;padding:10px;font-size:18px;background-color:#363636;border:0px;color:#eee;"/></input><button style="width:20%;padding:10px;background-color:#202020;color:#fff;font-size:18px;border:0px;" onclick="copyclipboard()"><i class="icon-docs"></i></button>
+</div>
+</div>
+<!-- descrição -->
+{% if page.content.size >= 10 %}
+<p class="decription-title">Descrição</p>
+{% if page.content contains '<!--more-->' %}
+    <div class="description">
+        {{ page.content | split:'<!--more-->' | first }}
+    </div>
+    <input type="checkbox" class="read-more-state" id="{{ page.url }}"/>
+    <div class="read-more">
+        {{ page.content | split:'<!--more-->' | last }}
+    </div>
+    <label for="{{ page.url }}" class="read-more-trigger"></label>
+{% else %}
+    <div class="description">{{ page.content }}</div>
+{% endif %}
+{% endif %}
+<div class="anuncioladopost mobile-only" style="text-align:center">
+<!-- Banner Mobile abaixo do vídeo -->
+<script async type="application/javascript" src="https://a.realsrv.com/ad-provider.js"></script><ins class="adsbyexoclick" data-zoneid="4684674"></ins><script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
+</div>
+<!-- Comentarios -->
+<div id="disqus_thread" style="display:none;min-height:100px;padding:2%;background-color:#101010;">
+    <div id="disqus_thread_loader">Carregando Comentarios...</div>
+</div>
+<script>
+var disqus_config=function(){this.page.url="{{ site.url }}{{ page.url }}",this.page.identifier="{{ page.thumb }}"},disqus_observer=new IntersectionObserver(function(e){var s,t;e[0].isIntersecting&&(s=document,(t=s.createElement("script")).src="https://um-pornozinho.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(s.head||s.body).appendChild(t),disqus_observer.disconnect())},{threshold:[0]});disqus_observer.observe(document.querySelector("#disqus_thread"));
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+<h4 class="footer-title">Vídeos Relacionados</h4>
+<div class="conteudo">
+	{% include related.html %}
+	{% include footer.html %}
+</div>
+</body>
+</html>

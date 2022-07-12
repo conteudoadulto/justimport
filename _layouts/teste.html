@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Um Pornozinho - Vídeos Pornô e Filme Pornô Grátis</title>
+<meta name="description" content="Confira uma variedades de vídeos pornô totalmente gratuito em nosso site, Um Pornozinho!">
+	{% include head.html %}
+<meta property="og:title" content="{{ page.title }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:image" content="https://umpornozinho.com/logotipo-header.webp" />
+<meta property="description" content="{{ page.description }}" />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{{ page.description }}">
+</head>
+<body> 
+	{% include header.html %}
+<div class="conteudo">
+<div class="postagens">
+{% for post in paginator.posts %}
+  <div class="post">
+  <span class="video-duration">{{ post.duration}}</span>
+  <a href="{{ site.url }}{{ post.url }}">
+  
+  
+  <video  src="{{ post.video }}" alt="{{ post.title }}" poster="{{ site.url }}/imagens/posts/{{ post.thumb }}.webp"/>
+  
+  
+  </a>
+  <h3 style="margin:0px;"><a class="post-title" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h3>
+
+  </div>
+{% endfor %}
+</div>
+<div class="pagination">
+  <ul>
+    {% if paginator.page != 1 %}
+      <li>
+        <a href="{{ site.url }}/">&lt;&lt;</a>
+      </li>
+    {% endif %}
+    
+    {% if paginator.previous_page %}
+      <li>
+        {% if paginator.previous_page != 1 %}
+          <a href="/pagina/{{ paginator.previous_page }}">&lt;</a>
+        {% else %}
+          <a href="{{ site.url }}/">&lt;</a>
+        {% endif %}
+      </li>
+    {% endif %}
+    
+    {% assign pagination_start = paginator.page | minus: 2 %}
+    
+    {% if pagination_start == -1 or pagination_start == 0 %}
+      {% assign pagination_start = 1 %}
+    {% endif %}
+    
+    {% assign pagination_end = paginator.page | plus: 2 %}
+      {% if pagination_end > paginator.total_pages %}
+        {% assign pagination_end = paginator.total_pages %}
+      {% endif %}
+    {% if pagination_end < 5 and paginator.total_pages> 5 %}
+      {% assign pagination_end = 5 %}
+    {% endif %}
+    {% for i in (pagination_start .. pagination_end) %}
+      {% if i != 1 %}
+        {% assign page_href = "/pagina/" | append: i %}
+      {% else %}
+        {% assign page_href = "/" %}
+      {% endif %}
+      {% if i == paginator.page %}
+        <li class="current-page">
+          <a href="{{ site.url }}{{ page_href }}">{{ i }}</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="{{ site.url }}{{ page_href }}">{{ i }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    {% if paginator.next_page %}
+      <li>
+        <a href="{{ site.url }}/pagina/{{ paginator.next_page }}">&gt;</a>
+      </li>
+    {% endif %}
+    {% if paginator.page != paginator.total_pages %}
+      <li>
+        <a href="{{ site.url }}/pagina/{{ paginator.total_pages }}">&gt;&gt;</a>
+      </li>
+    {% endif %}
+  </ul>
+</div>
+</div>
+<script>
+const video = document.querySelector("video");
+
+function startPreview() {
+  video.muted = true;
+  video.currentTime = 1;
+  video.playbackRate = 0.5;
+  video.play();
+}
+
+function stopPreview() {
+  video.currentTime = 0;
+  video.playbackRate = 1;
+  video.pause();
+}
+
+let previewTimeout = null;
+
+video.addEventListener("mouseenter", () => {
+  startPreview();
+  previewTimeout = setTimeout(stopPreview, 4000);
+});
+
+video.addEventListener("mouseleave", () => {
+  clearTimeout(previewTimeout);
+  previewTimeout = null;
+  stopPreview();
+});
+</script>
+	{% include footer.html %}
+</body>
+</html>

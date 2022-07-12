@@ -1,0 +1,2 @@
+var postsVideo = [{% for post in site.posts %}"{{ post.video }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+var postsTitle = [{% for post in site.posts %}"{{ post.title }}"{% unless forloop.last %},{% endunless %}{% endfor %}];

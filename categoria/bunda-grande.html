@@ -1,0 +1,21 @@
+---
+title: bunda grande
+layout: categoria
+permalink: /categoria/bunda-grande
+---
+<h1 class="site-title">Categoria {{ page.title  | capitalize }} - Um Pornozinho</h1>
+<div class="conteudo">
+<div class="postagens">
+{% assign maxRelated = 112 %}
+{% assign maxRelatedCounter = 0 %}
+{% for post in site.posts %}
+	{% if post.categories contains 'big-ass,' or post.categories contains 'big-ass' or post.categories contains 'bunda-grande,' or post.categories contains 'bunda-grande' or post.categories contains 'bigass,' or post.categories contains 'bigass' %}
+{% include modelopostagem.html %}
+            {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+            {% if maxRelatedCounter >= maxRelated %}
+                {% break %}
+            {% endif %}
+    {% endif %}
+{% endfor %}
+</div>
+</div>

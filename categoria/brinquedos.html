@@ -1,0 +1,21 @@
+---
+title: brinquedos
+layout: categoria
+permalink: /categoria/brinquedos
+---
+<h1 class="site-title">Categoria {{ page.title  | capitalize }} - Um Pornozinho</h1>
+<div class="conteudo">
+<div class="postagens">
+{% assign maxRelated = 112 %}
+{% assign maxRelatedCounter = 0 %}
+{% for post in site.posts %}
+	{% if post.categories contains 'brinquedos,' or post.categories contains 'brinquedos' or post.categories contains 'toys,' or post.categories contains 'toys' or post.categories contains 'toy,' or post.categories contains 'toy' or post.categories contains 'brinquedo,' or post.categories contains 'brinquedo' %}
+{% include modelopostagem.html %}
+            {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+            {% if maxRelatedCounter >= maxRelated %}
+                {% break %}
+            {% endif %}
+    {% endif %}
+{% endfor %}
+</div>
+</div>

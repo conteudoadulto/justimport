@@ -1,0 +1,21 @@
+---
+title: fetiche
+layout: categoria
+permalink: /categoria/fetiche
+---
+<h1 class="site-title">Categoria {{ page.title  | capitalize }} - Um Pornozinho</h1>
+<div class="conteudo">
+<div class="postagens">
+{% assign maxRelated = 112 %}
+{% assign maxRelatedCounter = 0 %}
+{% for post in site.posts %}
+	{% if post.categories contains 'fetiche,' or post.categories contains 'fetiche' or post.categories contains 'fetish,' or post.categories contains 'fetish' %}
+{% include modelopostagem.html %}
+            {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+            {% if maxRelatedCounter >= maxRelated %}
+                {% break %}
+            {% endif %}
+    {% endif %}
+{% endfor %}
+</div>
+</div>

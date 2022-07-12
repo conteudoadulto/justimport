@@ -1,0 +1,69 @@
+---
+layout: maisvistos
+permalink: /mais-vistos
+---
+<div class="conteudo">
+<h3 style="text-align:center;font-weight:500;">Os 12 vídeos mais assistidos no mês, atualiazado em junho de 2022</h3>
+<div class="postagens">
+{% for post in site.posts %}
+  {% if post.ranking == '1' %}
+{% include modelopostagem.html %}
+      {% endif %}
+{% endfor %}
+{% for post in site.posts %}
+  {% if post.ranking == '2' %}
+{% include modelopostagem.html %}
+      {% endif %}
+{% endfor %}
+{% for post in site.posts %}
+  {% if post.ranking == '3' %}
+{% include modelopostagem.html %}
+      {% endif %}
+{% endfor %}
+{% for post in site.posts %}
+  {% if post.ranking == '4' %}
+{% include modelopostagem.html %}
+      {% endif %}
+{% endfor %}
+{% for post in site.posts %}
+  {% if post.ranking == '5' %}
+{% include modelopostagem.html %}
+      {% endif %}
+{% endfor %}
+{% for post in site.posts %}
+  {% if post.ranking == '6' %}
+{% include modelopostagem.html %}
+     {% endif %}
+{% endfor %}
+{% for post in site.posts %}
+  {% if post.ranking == '7' %}
+{% include modelopostagem.html %}
+      {% endif %}
+{% endfor %}
+{% for post in site.posts %}
+  {% if post.ranking == '8' %}
+{% include modelopostagem.html %}
+      {% endif %}
+{% endfor %}
+{% for post in site.posts %}
+  {% if post.ranking == '9' %}
+{% include modelopostagem.html %}
+      {% endif %}
+{% endfor %}
+{% for post in site.posts %}
+  {% if post.ranking == '10' %}
+{% include modelopostagem.html %}
+      {% endif %}
+{% endfor %}
+{% for post in site.posts %}
+  {% if post.ranking == '11' %}
+{% include modelopostagem.html %}
+      {% endif %}
+{% endfor %}
+{% for post in site.posts %}
+  {% if post.ranking == '12' %}
+{% include modelopostagem.html %}
+      {% endif %}
+{% endfor %}
+</div>
+</div>

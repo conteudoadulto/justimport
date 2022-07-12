@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title id="titulo"></title>
+<script type="text/javascript">
+function getQueryVariable(variable)
+{
+   var query = window.location.search.substring(1);
+   var vars = query.split("&");
+   for (var i=0;i<vars.length;i++) {
+           var pair = vars[i].split("=");
+           if(pair[0] == variable){
+            return pair[1];
+          }
+   }
+}
+var id_is = getQueryVariable("query");
+window.onload = function(){
+document.getElementById('titulo').innerHTML ="" + id_is + " tag - Um Pornozinho";
+}
+</script>
+	{% include head.html %}
+<meta property="og:title" content="{{ page.title }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:image" content="https://umpornozinho.com/logotipo-header.webp" />
+<meta property="description" content="{{ page.description }}" />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{{ page.description }}">
+</head>
+  <body>
+{% include popunder.html %}
+	{% include header.html %} 
+        {{ content }}
+	{% include footer.html %}
+ </body>
+
+</html>

@@ -1,0 +1,26 @@
+---
+layout: null
+sitemap:
+  exclude: 'yes'
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  {% for post in site.posts %}
+    {% unless post.published == false %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <image:image>
+      <image:loc>{{ site.url }}/imagens/posts/{{ post.thumb }}.jpg</image:loc>
+      <image:caption>{{ post.title }}</image:caption>
+      <image:title>{{ post.title }}</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>{{ site.url }}/imagens/posts/{{ post.thumb }}.webp</image:loc>
+      <image:caption>{{ post.title }}</image:caption>
+      <image:title>{{ post.title }}</image:title>
+    </image:image>
+  </url>
+    {% endunless %}
+  {% endfor %}
+</urlset>

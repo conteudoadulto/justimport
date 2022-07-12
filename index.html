@@ -1,0 +1,31 @@
+---
+layout: index
+id: index
+---
+<h1 class="site-title">Um Pornozinho - Vídeos Pornô e Filme Pornô Grátis</h1>
+<div class="conteudo">
+<div class="postagens">
+{% for post in site.posts limit: 8 %}
+{% include modelopostagem.html %}
+{% endfor %}
+{% for post in site.posts offset:8 limit: 20 %}
+{% include modelopostagem.html %}
+{% endfor %}
+</div>
+<div class="pagination">
+  <ul>
+        <li class="current-page">
+          <a href="https://umpornozinho.com/">1</a>
+        </li>
+        <li>
+          <a href="https://umpornozinho.com/pagina/2/">2</a>
+        </li>
+        <li>
+          <a href="https://umpornozinho.com/pagina/3/">3</a>
+        </li>
+		<li>
+        <a href="https://umpornozinho.com/pagina/2/">&gt;</a>
+	</li>
+  </ul>
+</div>
+</div>

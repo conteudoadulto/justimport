@@ -1,0 +1,21 @@
+---
+title: pornstar
+layout: categoria
+permalink: /categoria/pornstar
+---
+<h1 class="site-title">Categoria {{ page.title  | capitalize }} - Um Pornozinho</h1>
+<div class="conteudo">
+<div class="postagens">
+{% assign maxRelated = 112 %}
+{% assign maxRelatedCounter = 0 %}
+{% for post in site.posts %}
+	{% if post.categories contains 'pornstar,' or post.categories contains 'pornstar' or post.categories contains 'atriz,' or post.categories contains 'atriz' %}
+{% include modelopostagem.html %}
+            {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+            {% if maxRelatedCounter >= maxRelated %}
+                {% break %}
+            {% endif %}
+    {% endif %}
+{% endfor %}
+</div>
+</div>

@@ -1,0 +1,26 @@
+---
+layout: null
+sitemap:
+  exclude: 'yes'
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  {% for post in site.posts %}
+    {% unless post.published == false %}
+	<url>
+     <loc>{{ site.url }}{{ post.url }}</loc>
+     <video:video>
+       <video:thumbnail_loc>{{ site.url }}/imagens/posts/{{ post.thumb }}.jpg</video:thumbnail_loc>
+       <video:title>{{ post.title }}</video:title>
+       <video:description>{% if post.description %}{{ post.description }}{% else %}Confira: {{ post.title }} e outros vídeos em Um Pornozinho!{% endif %}</video:description>
+       <video:player_loc>{{ post.video }}</video:player_loc>
+       <video:duration>{% assign duration = post.duration | split: ":" %}{% assign minutos = duration.first | times: 60.0 %}{{ duration.last | plus: minutos | floor }}</video:duration>
+     </video:video>
+   </url>
+    {% endunless %}
+  {% endfor %}
+</urlset>
+
+
+

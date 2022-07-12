@@ -1,0 +1,11 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /
+Disallow: /pagina/*
+Disallow: /random/
+
+Sitemap: https://umpornozinho.com/sitemap.xml
+Sitemap: https://umpornozinho.com/sitemap-images.xml
+Sitemap: https://umpornozinho.com/sitemap-video.xml

@@ -1,0 +1,21 @@
+---
+title: POV
+layout: categoria
+permalink: /categoria/pov
+---
+<h1 class="site-title">Categoria {{ page.title  | capitalize }} - Um Pornozinho</h1>
+<div class="conteudo">
+<div class="postagens">
+{% assign maxRelated = 112 %}
+{% assign maxRelatedCounter = 0 %}
+{% for post in site.posts %}
+	{% if post.categories contains 'pov,' or post.categories contains 'pov' or post.categories contains 'point-of-view,' or post.categories contains 'point-of-view' or post.categories contains 'pointofview,' or post.categories contains 'pointofview' or post.categories contains 'POV,' or post.categories contains 'POV' %}
+{% include modelopostagem.html %}
+            {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+            {% if maxRelatedCounter >= maxRelated %}
+                {% break %}
+            {% endif %}
+    {% endif %}
+{% endfor %}
+</div>
+</div>

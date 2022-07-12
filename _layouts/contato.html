@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Dúvida? entre em contato conosco - Um Pornozinho</title>
+<meta name="description" content="Ficou em dúvida sobre algum assunto, gostaria que algum vídeo fosse removido ou gostaria de estabelecer uma parceria entre sites? entre em contato.">
+	{% include head.html %}
+<meta property="og:title" content="{{ page.title }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:image" content="https://umpornozinho.com/logotipo-header.webp" />
+<meta property="description" content="{{ page.description }}" />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{{ page.description }}">
+</head>
+<body> 
+	{% include header.html %}
+    {{ content }}
+	{% include footer.html %}
+</body>
+</html>

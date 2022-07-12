@@ -1,0 +1,16 @@
+# jekyll-related-posts settings.
+related_by: tags or categories
+related_categories: 1
+related_tags: 1
+related_limit: 12
+
+# paginate
+title: Um Pornozinho - Vídeos Pornô e Filme Pornô Grátis
+description: Venha assistir um pornozinho no site que seleciona os melhores vídeos para você, os melhores videos porno e filme porno gratis estão aqui.
+gems: [jekyll-paginate]
+paginate: 28
+paginate_path: /pagina/:num/
+url: https://umpornozinho.com
+
+plugins:
+  - jekyll-paginate

@@ -1,0 +1,21 @@
+---
+title: pênis grande
+layout: categoria
+permalink: /categoria/penis-grande
+---
+<h1 class="site-title">Categoria {{ page.title  | capitalize }} - Um Pornozinho</h1>
+<div class="conteudo">
+<div class="postagens">
+{% assign maxRelated = 112 %}
+{% assign maxRelatedCounter = 0 %}
+{% for post in site.posts %}
+	{% if post.categories contains 'big-dick,' or post.categories contains 'big-dick' or post.categories contains 'penis-grande,' or post.categories contains 'penis-grande' or post.categories contains 'bigdick,' or post.categories contains 'bigdick' %}
+{% include modelopostagem.html %}
+            {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+            {% if maxRelatedCounter >= maxRelated %}
+                {% break %}
+            {% endif %}
+    {% endif %}
+{% endfor %}
+</div>
+</div>
