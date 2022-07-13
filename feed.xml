@@ -10,7 +10,6 @@ layout: null
                 <description>{% if post.description %}{{ post.description }}{% else %}Confira: {{ post.title }} e outros vídeos em Um Pornozinho!{% endif %}</description>
                 <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
                 <image:image xmlns:image="https://umpornozinho.com/wp-content/uploads/2022/07/{{ post.thumb }}">
-				<media>{{ post.date | date_to_rfc822 }}</img>
                 <link>{{ post.video }}</link>
                 {% for tag in post.tags %}
                 <category>{{ tag | xml_escape | remove: "," }}</category>
